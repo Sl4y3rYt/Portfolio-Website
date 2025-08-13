@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Varun Kumar Korikana — VFX Portfolio</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" data-link aria-label="Home">
+      <img id="logoImg" alt="Logo" />
+      <span id="logoText">VK</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#home" data-link>Home</a>
+      <a href="#about" data-link>About / Resume</a>
+      <a href="#works" data-link>Works / Projects</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Home -->
+    <section id="home" class="view active hero-full">
+      <canvas id="fxbg" aria-hidden="true"></canvas>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-center">
+        <div class="hero-card">
+          <h1 class="title">
+            <span id="heroName">Varun Kumar Korikana</span>
+            <span class="accent" id="heroTitle">FX Artist / CG Generalist</span>
+          </h1>
+
+          <p class="subtitle" id="heroSubtitle">
+            Houdini FX • Procedural Tools • Fluid / Pyro • Comp &amp; Lookdev • Maya • Nuke • Unreal
+          </p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" id="openReel" href="#" target="_blank" rel="noopener">▶ Watch Reel</a>
+            <button class="btn btn-ghost" id="goWorks">View Projects</button>
+          </div>
+
+          <div class="hero-stats">
+            <div><strong>1+ yr</strong><span>experience</span></div>
+            <div><strong>FX</strong><span>explosions / fluids</span></div>
+            <div><strong>Shot-ready</strong><span>sim → comp</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Resume -->
+    <section id="about" class="view">
+      <div class="container">
+        <h2>About / Resume</h2>
+        <p id="aboutSummary">
+          Creative and technically skilled FX Artist / CG Generalist with experience crafting visually
+          compelling effects and 3D assets for diverse media platforms.
+        </p>
+
+        <div class="resume-block">
+          <h3>Experience</h3>
+          <ul class="list spaced-experience" id="experienceList"></ul>
+
+          <h3>Education</h3>
+          <ul class="list" id="educationList"></ul>
+        </div>
+
+        <div class="resume-grid">
+          <div>
+            <h3>Skills</h3>
+            <ul class="pill-list" id="skillsList"></ul>
+          </div>
+
+          <div>
+            <h3>Tools & Renderers</h3>
+            <ul class="pill-list" id="toolsList"></ul>
+
+            <h3>Certifications</h3>
+            <ul class="list" id="certList"></ul>
+          </div>
+        </div>
+
+        <div class="resume-actions center bottom">
+          <a class="btn btn-primary" id="downloadResume" href="#" target="_blank" rel="noopener">⬇ Download Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works / Projects -->
+    <section id="works" class="view">
+      <div class="container">
+        <h2>Works / Projects</h2>
+
+        <div class="toolbar">
+          <div class="filters" id="filters"></div>
+        </div>
+
+        <div id="videoGrid" class="grid"><div class="muted">Loading…</div></div>
+
+        <template id="videoCardTpl">
+          <article class="card fade-in">
+            <div class="thumb-wrap">
+              <img class="thumb" alt="" loading="lazy" />
+              <button class="play" title="Play">▶</button>
+            </div>
+            <div class="meta">
+              <h3 class="card-title"></h3>
+              <div class="tags"></div>
+            </div>
+          </article>
+        </template>
+
+        <dialog id="playerModal">
+          <button id="closeModal" class="close" aria-label="Close">✕</button>
+          <div id="playerWrap" class="player-wrap"></div>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="view">
+      <div class="container">
+        <h2>Contact</h2>
+
+        <div class="contact-card">
+          <div class="contact-blurb">
+            <p id="contactBlurb">Let’s talk about FX — explosions, fluids, environments, or your next show. I’m available for internships, freelance, and junior roles.</p>
+          </div>
+
+          <ul class="contact-list icons" id="contactList"></ul>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! I will get back to you.');">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea name="message" rows="4" placeholder="Project details or a hello…" required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> <span id="footerName">Varun Kumar Korikana</span> — VFX Portfolio</span>
+  </footer>
+
+  <!-- PDF.js (for extracting text when Description is a PDF link) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.js";
+    }
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
